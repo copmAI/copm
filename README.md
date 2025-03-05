@@ -53,29 +53,12 @@ http://localhost:1865/admin
 
 Here, you can configure language models, embeddings, and other settings.  
 
-### 4. Configure the Embedder  
+### 4. Install and Configure Plugins  
 
-To use `intfloat/multilingual-e5-large` as the embedder:  
+Install these plugins in the **Admin Panel** (`http://localhost:1865/admin/plugins`):
 
-1. Open the **Admin Panel** (`http://localhost:1865/admin`).  
-2. Navigate to **Settings** → **Embedder**.  
-3. Select **Qdrant FastEmbed (Local)** as the embedder type.  
-4. Enter the following model name:  
-
-   ```
-   intfloat/multilingual-e5-large
-   ```
-
-5. Save the settings and restart the service if needed.
-
-### 5. Install and Configure Plugins  
-
-To optimize Cheshire Cat AI, install these plugins in the **Admin Panel** (`http://localhost:1865/admin/plugins`):
-
-1. **Core CCat** – (Pre-installed, no action needed)
-2. **Rabbithole Segmentation** – Allows segmentation of documents and URLs for multi-user environments.
-3. **Cheshire Cat Prompt Settings** – Enables customization of default prompt settings.
-4. **Dietician** – Prevents redundant document ingestion and supports declarative memory updates.
+1. **Rabbithole Segmentation** – Allows segmentation of documents and URLs for multi-user environments.
+2. **Cheshire Cat Prompt Settings** – Enables customization of default prompt settings.
 
 ### 5. Run Jupyter Notebooks  
 
