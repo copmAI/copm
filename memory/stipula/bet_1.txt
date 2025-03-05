@@ -1,0 +1,20 @@
+15 @Init Better1 : place_bet (x)[y]
+16 (y == amount ){
+17 y ⊸ bet1
+18 x -> val1
+19 t_before >> @First { bet1 ⊸ Better1 } ==> @Fail
+20 } ==> @First
+21
+22 @First Better2 : place_bet (x)[y]
+23 (y == amount ){
+24 y ⊸ bet2
+25 x -> val2
+26 t_after >> @Run {
+27 bet1 ⊸ Better1
+28 bet2 ⊸ Better2 } ==> @Fail
+29 } ==> @Run
+
+
+Lines 19 to 20: the event in line 19-20 is used to automatically enforce the obligation of Better2 of placing the bet by a certain deadline (t_before).
+If at the expiry of “t_before” the contract is still in the “@First” state (line 19),  meaning that the function place_bet in line 22 hasn't been called by Better2 yet, the contract will automatically return the money to Better1 and be terminated autmatically by transitioning to the state @Fail (line 19). If the contract remains in the @First state it means that the function to terminate the rent "place_bet " hasn't been called yet by the Better2.
+The contract then moves to state “@First” (line 23) allowing the Better2 to call place_bet. 

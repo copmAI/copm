@@ -1,0 +1,21 @@
+Article 4. This license will terminate automatically at the end
+of the evaluation period, if the licensee does not buy the
+product.
+
+17 @Proposal Licensee : activateLicence [b]
+18 (b == cost ){
+19 b ⊸ balance
+20 balance *0 ,1 ⊸ balance , Authority
+21 uses (token , Licensee ) -> Licensee
+22 now + t_limit >> @Trial {
+23 balance ⊸ Licensee
+24 token ⊸ Licensor
+25 } ==> @End
+26 } ==> @Trial
+27
+28 @Trial Licensee : buy {
+29 balance ⊸ Licensor
+30 token ⊸ Licensee
+31 } ==> @End
+
+The event in lines 22-25 implements the provision of article 4. If t_limit expires and the contract is still in state @Trial (meaning that the buy function hasn't been called yet), the contract terminates transitioning in state @End.

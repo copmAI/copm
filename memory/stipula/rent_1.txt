@@ -1,0 +1,18 @@
+10 @Inactive Lender : boxProposal (n)[t] {
+11 t ⊸ token
+12 n -> numBox
+13 now + t_start >> @Proposal {
+14 token ⊸ Lender } ==> @End
+15 } ==> @Proposal
+16
+17 @Proposal Borrower : boxUse {
+18 ( uses ( token ), numBox ) -> Borrower
+19 now + t_limit >> @Using {
+20 " Time_Limit_Reached " -> Borrower
+21 token ⊸ Lender
+22 } ==> @End
+23 } ==> @Using
+
+Lines  13 to 15:  the event in line 13-15 is used to implement the obligation of starting the rent by a certain deadline (t_start).
+If at the expiry of “t_start” the contract is still in the “@Proposal” state (line 13), it  will  be  terminated  by sending the token back to Lender (line 14). If the contract remains in the @Proposal state it means that the function boxUse hasn't been called yet by Borrower.
+The contract then moves to state “@Proposal” allowing the Borrower to call boxUse. 

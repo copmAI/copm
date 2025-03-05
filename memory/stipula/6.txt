@@ -1,0 +1,5 @@
+10 @Inactive Lender : boxProposal (n)[t] {
+11 t ⊸ token
+12 n -> numBox
+
+Lines 10 to 15: “boxProposal” function. The first words shown in line 10 before the function’s name indicate that this function can be only called when the contract’s state is “@Inactive” and only by the lender. This function involves two elements: the token that represents the locker “[t]” and its identification number “(n)”.  The different type of brackets used indicates the different kind of value they contain: square brackets contain asset values (i.e., linear resources) and round brackets simple field values (simple data). By calling this function the lender sends both elements to the smart contract’s address: “t” is sent in the contract’s asset “token” (line 11), and “n” to field “numBox” (line 12). Note that the token is transferred through the lollypop operator, meaning that it was subtracted from the previous location (lender’s address). In particular, line 11 is an abbreviation for “t ⊸ t, token” (cfr. 2.3.5). 

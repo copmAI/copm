@@ -1,0 +1,12 @@
+Functions F ::= -- | @Q A : f(y)[k] (E){S W } => @Q'
+Functions F are sequences of function definitions, where -- stands for the empty sequence. The syntax highlights the state Q when the invocation is admitted and who is the party A that can invoke the function. Function’s parameters are split in two lists: the formal parameters y in brackets and the asset parameters k in square brackets. The preconditionEconstrains the execution of the body off. Finally the body {S W}=>@Q  specifies the statement part S, the event part W, and the state Q' of the contract when the function execution terminates.
+
+Functions are used to express actions of parties. For example
+
+@Start PriceProvider : update_price (p)[] {
+p → price
+p → Seller , Buyer
+} => @Waiting_order
+
+indicates that the function update_price can only be called in the state @Start. The PriceProvider updates the price and sends the new
+value to the Seller and the Buyer.

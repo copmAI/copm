@@ -1,0 +1,8 @@
+11 @Inactive Licensor : offerLicence [t] {
+12 t ⊸ token
+13 now + t_start >> @Proposal {
+14 token ⊸ Licensor } ==> @End
+15 } ==> @Proposal
+
+Lines 11 to 15: “offerLicense” function which can be called by the licensor when the contract is “@Inactive”. Licensor sends the token representing the license [t] to smart contract’s asset “token” (line 12). At the same time, an event is triggered. If at the expiry of “t_start” the contract is still in the “@Proposal” state (line 13), it will be terminated by sending the token back to licensor (line 14). 
+The contract state switches to “@Proposal” (line 15).

@@ -1,0 +1,20 @@
+11 @Inactive Licensor : offerLicence [t] {
+12 t ⊸ token
+13 now + t_start >> @Proposal {
+14 token ⊸ Licensor } ==> @End
+15 } ==> @Proposal
+16
+17 @Proposal Licensee : activateLicence [b]
+18 (b == cost ){
+19 b ⊸ balance
+20 balance *0 ,1 ⊸ balance , Authority
+21 uses (token , Licensee ) -> Licensee
+22 now + t_limit >> @Trial {
+23 balance ⊸ Licensee
+24 token ⊸ Licensor
+25 } ==> @End
+26 } ==> @Trial
+
+Lines 13 to 15: the event in line 13-15 is used to implement the obligation of activating the contract by a certain deadline (t_start).
+If at the expiry of “t_start” the contract is still in the “@Proposal” state (line 13), it will be terminated by sending the token back to licensor (line 14). If the contract remains in the @Proposal state it means that the function activateLicense hasn't been called yet.
+The contract then moves to state “@Proposal” allowing the Licensee to call activateLicense. 

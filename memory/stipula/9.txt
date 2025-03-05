@@ -1,0 +1,9 @@
+10 @Start , @Waiting_order PriceProvider : update_price (p)[] {
+11 p → price
+12 p → Seller , Buyer
+13 } => @Waiting_order
+
+The contract is initialised in the state @Start (line 8) where the unique function
+admitted is the set of price by the reporting agency PriceProvider – lines
+10-13. [Line 10 specifies that update_price may be also invoked in the state
+@Waiting_order.] Then the contract transits in the state @Waiting_order. 

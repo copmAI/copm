@@ -1,0 +1,16 @@
+17 @Proposal Borrower : boxUse {
+18 ( uses ( token ), numBox ) -> Borrower
+19 now + t_limit >> @Using {
+20 " Time_Limit_Reached " -> Borrower
+21 token ⊸ Lender
+22 } ==> @End
+23 } ==> @Using
+24
+25 @Using Borrower : returnBox {
+26 token ⊸ Lender
+27 } ==> @End
+28 }
+
+Lines 19 to 23: the event in line 19-22 is used to automatically enforce the obligation of terminating the rent of the box by a certain deadline (t_limit).
+If at the expiry of “t_limit” the contract is still in the “@Using” state (line 19),  it will be terminated autmatically by sending  a message to the Borrower and transitioning to the state @End (line 22). If the contract remains in the @Using state it means that the function to terminate the rent "returnBox " hasn't been called yet by the borrower.
+The contract then moves to state “@Using” (line 23) allowing the borrower to call returnBox. 

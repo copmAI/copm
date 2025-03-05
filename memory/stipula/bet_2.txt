@@ -1,0 +1,20 @@
+22 @First Better2 : place_bet (x)[y]
+23 (y == amount ){
+24 y ⊸ bet2
+25 x -> val2
+26 t_after >> @Run {
+27 bet1 ⊸ Better1
+28 bet2 ⊸ Better2 } ==> @Fail
+29 } ==> @Run
+30
+31 @Run DataProvider : data (x,z)[]
+32 (x== alea_fact ){
+33 (z== val1 ){ // The winner is Better1
+34 fee ⊸ bet2 , DataProvider
+35 bet2 ⊸ Better1
+36 bet1 ⊸ Better1
+37 } ==> @End
+
+
+Lines 26 to 29: the event in line 26-28 is used to automatically enforce the obligation by the DataProvider of feeding the necessary data into the contract by a certain deadline (t_after).
+If at the expiry of “t_after” the contract is still in the “@Run” state (line 19),  meaning that the function data in line 31 hasn't been called by DataProvider yet, the contract will automatically return the money to Better1 and Better2 (lines 27-28) and be terminated autmatically by transitioning to the state @Fail (line 28). If the contract remains in the @Run state it means that the function to feed the necessary data to the contract the rent "data" hasn't been called yet by the DataProvider.

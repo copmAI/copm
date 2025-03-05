@@ -1,0 +1,6 @@
+28 @Trial Licensee : buy {
+29 balance ⊸ Licensor
+30 token ⊸ Licensee
+31 } ==> @End
+
+Lines 28 to 31: “buy” function. Licensee chooses to buy the license. The amount of money escrowed in the “balance” is sent to the licensor (line 29) and the licensee receives the token representing the license (line 30). With the purchase, the contract finds one of its physiological termination causes and its state is set to “@End”. 

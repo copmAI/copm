@@ -1,0 +1,8 @@
+22 now + t_limit >> @Trial {
+23 balance ⊸ Licensee
+24 token ⊸ Licensor
+25 } ==> @End
+26 } ==> @Trial
+
+The event showed in lines 22 to 25 enforces the prohibition to use the product after the evaluation period, where not bought yet. If after “t_limit” expires the contract is still in “@Trial” state (line 22), then it will be terminated by sending the balance left in the smart contract back to the licensee (line 23), and the token back to the licensor (line 24). 
+State is switched to “@Trial”. 

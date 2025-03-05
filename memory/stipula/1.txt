@@ -1,0 +1,5 @@
+1 Stipula Licence {
+2 assets token , balance
+3 fields cost , t_start , t_limit
+
+Lines 1 to 3: the smart contract indicates what are the fields and the assets. As mentioned already, we have two assets, a token and a balance. The fields outline the license cost, the deadline for the acceptance of the license contract proposal (“t_start”) and the evaluation period duration (“t_limit”).

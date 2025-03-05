@@ -1,0 +1,14 @@
+15 @Waiting_order Buyer : place_order ()[w] {
+16 w/( price×formula ) → order
+17 order → Seller
+18 w ⊸ wallet
+19 } => @Order
+
+Then the contract transits in the state @Waiting_order. In
+this state, the Buyer purchases gas by means of the function place_order. This
+function takes w representing the currency sent for the purchase (the square
+brackets identify the parameters that are assets). The corresponding amount of
+gas, e.g. w/(price×formula), is stored into order (line 16) and communicated
+to the Seller (line 17); then w is escrowed by the contract and stored in wallet
+(line 18). At this point, the contract transits to the @Order state, enabling the
+Seller to call the send_gas function.

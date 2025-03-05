@@ -1,0 +1,17 @@
+Agreement Constructor
+This is the initial stage of every Stipula contract and basically represents the negotiation stage. This is a crucial element for any smart contract because it lays down the terms according to which the contract will have to operate. 
+The agreement indicates, in the first place, who are the subjects participating in it. After it, one party propose the terms she agrees on (=SET=) and the other is able to express her consent on those terms (=OK=). Contracts can present two or multiple parties, but no specific order is required for setting and accepting its elements. When the contract also requires the presence of an oracle, such an entity may be called to express its consent on certain terms and, therefore, included in the agreement. The subjects to the agreement only set or agree on terms by which they are affected, not all of them. Note that only field values are set here and not assets (see infra-2.3.4).
+When this stage is concluded, the smart contract is set to the initial state. This moment represents the conclusion of contract’s drafting where the whole contract body is complete. However, parties’ still need to express their consent on the whole body of contractual obligations in order for the legal bond to be established (signing the contract). Such “meeting of the minds” is implemented into the smart contract by calling specific functions that represents the moments of “offer” and “acceptance” of contract’s formation and the consent will be expressed facta concludentia.
+
+Theagreement construct directly encodes the meeting of the minds. It does so, by requiring that the parties agree on all terms, before triggering the execution of the contract.
+
+
+A contract enters into force at the moment of parties’ agreement, so called
+‘meeting of the minds’. This is represented by the agreement operator through
+which parties are called to agree to the terms of the contract. For example
+agreement ( Seller , Buyer , PriceProvider ) {
+Seller , Buyer : formula
+} init => @Start
+defines a contracts whose parties are Seller, Buyer and PriceProvider,
+where Seller and Buyer must initially agree on the values of the field
+formula.

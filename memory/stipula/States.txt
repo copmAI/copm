@@ -1,0 +1,29 @@
+3.2.1	States
+
+The set of normative elements changes over time
+according to the actions have been done (or not). To model these
+changes, Stipula commits to a state-aware programming style, inspired
+by the state machine pattern widely used in smart contracts
+(c.f. Solidity [1] and Obsidian [3]). This technique allows one to
+enforce the intended behaviour by prohibiting, for instance, the
+invocation of a function before another specific function is called.
+
+“Stipula is committed to a state-aware programming style” . The State machine Design pattern is a traditional programming model in computer science. This technique allows for the breakdown of an entire program’s complex task into multiple smaller tasks. Dividing a software into multiple units helps managing the order in which software tasks have to be performed . By doing so, we are able to enforce the intended behaviour by allowing or precluding the call of specific functions depending on the current state of the program. To exemplify, when in state Q of a program, only functions f and f’ can be called, while to call function f’’’ the software must transit to state Q’’ first.  
+In the code, states’ names are indicated by the “@” before the word (e.g., “@Inactive”)
+In smart legal contracts, states represent the stages of contract’s life. A contract, for instance, can be inactive, in the offer, acceptance, execution or terminated stages.  
+Stipula uses states to implement prohibition or permission patterns. In a bike rental, once the borrower has legitimately initiated the contract, the lender is prohibited form preventing the usage of the bike until the agreed time comes up. The contract state will not allow the call of the function that sends the bike token back to the lender. Moreover, Stipula states are abstract enough to be easily identifiable by lawyers and to allow an effective management when building a contract.
+
+
+– Legal contracts may create, extinguish or regulate normative positions linked
+to parties such as permissions, prohibitions, obligations or powers. Stipula
+uses states to model and automatically enforce prohibitions and permissions
+by precluding or allowing the invocation of functions. They are indicated
+by an "@" in front. In the foregoing code, the initial state of the contract is
+@Inactive. Functions are used to express actions of parties and correspond
+to contract clauses. For example
+@Start PriceProvider : update_price (p)[] {
+p → price
+p → Seller , Buyer
+} => @Waiting_order
+in the state @Start the PriceProvider updates the price and sends the new
+value to the Seller and the Buyer.

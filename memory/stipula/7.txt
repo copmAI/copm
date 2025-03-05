@@ -1,0 +1,5 @@
+13 now + t_start >> @Proposal {
+14 token ⊸ Lender } ==> @End
+15 } ==> @Proposal
+
+Lines 13-14 express an event: a timer is triggered and, if the limit expires (“t_start”) with the contract’s state still being “@Proposal”, then the token is sent back to the lender and the contract is terminated (@End state). After the three operations are executed (transfer of [t], (n) and the timeout triggered) the contract’s state is switched to “@Proposal”.

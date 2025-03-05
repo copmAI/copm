@@ -1,0 +1,10 @@
+17 @Proposal Borrower : boxUse {
+18 ( uses ( token ), numBox ) -> Borrower
+19 now + t_limit >> @Using {
+20 " Time_Limit_Reached " -> Borrower
+21 token ⊸ Lender
+22 } ==> @End
+23 } ==> @Using
+
+In lines 19-23 we have another timeout that triggers an event. If “t_limit” is reached with the contract state still being in “@Using” (line 19), the borrower receives a message saying “time limit reached” (line 20) and the token representing the locker is sent back from the smart contract to the lender’s address. By doing so, the lender gets back the full control on the good (line 21), and the contract is terminated by switching to “@End” state (line 22).
+Calling this function switches the contract state to “@Using”.
