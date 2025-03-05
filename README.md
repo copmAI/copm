@@ -17,8 +17,8 @@ Ensure you have the following installed on your system:
 ### 1. Clone This Repository  
 
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/copmAI/AISOC25.git
+cd AISOC25
 ```
 
 ### 2. Start the Cheshire Cat AI Service  
