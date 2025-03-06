@@ -26,40 +26,16 @@ Run the following command in the project directory to start the services using D
 
 ```bash
 docker compose up -d
-```
+```  
 
-To view logs:  
+### 3. Install Cheshire Cat Plugins
 
-```bash
-docker compose logs -f
-```
-
-To stop the running services, use:  
-
-```bash
-docker compose down
-```
-
-This will stop and remove the containers without deleting volumes or stored data.  
-
-### 3. Access the Cheshire Cat Admin Panel  
-
-Once the services are running, open your browser and go to:  
-
-```
-http://localhost:1865/admin
-```
-
-Here, you can configure language models, embeddings, and other settings.  
-
-### 4. Install and Configure Plugins  
-
-Install these plugins in the **Admin Panel** (`http://localhost:1865/admin/plugins`):
+Once the services are running, install these plugins in the **Cheshire Cat Admin Panel** (`http://localhost:1865/admin/plugins`):
 
 1. **Rabbithole Segmentation** – Allows segmentation of documents and URLs for multi-user environments.
 2. **Cheshire Cat Prompt Settings** – Enables customization of default prompt settings.
 
-### 5. Run the Notebooks  
+### 4. Run the Notebooks  
 
 Open JupyterLab in your browser:
 
@@ -78,3 +54,14 @@ KEY = "your-openai-api-key-here"
    Without this key, the notebook will not be able to interact with the OpenAI API.  
 
 Execute all cells sequentially to explore the case studies.
+
+### 5. Stop the services
+
+To stop the running services, use:  
+
+```bash
+docker compose down
+```
+
+This will stop and remove the containers without deleting volumes or stored data.
+
