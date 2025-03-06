@@ -4,6 +4,8 @@ This repository contains the support material for the paper *Chain of Prompts an
 
 This guide provides instructions for setting up and running a [Cheshire Cat AI](https://cheshirecat.ai/) instance using Docker Compose, as well as accessing Jupyter Notebooks included in this repository.
 
+**Disclaimer:** The execution results may vary slightly from those presented in the paper. Such differences are expected, as large language models are inherently non-deterministic, making it impossible to consistently generate identical outputs with the same wording.
+
 ## Prerequisites  
 
 Ensure you have the following installed on your system:  
