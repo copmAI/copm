@@ -1,7 +1,9 @@
 version: '3.7'
 
-services:
+networks:
+  copm-network:
 
+services:
   cheshire-cat-core:
     image: ghcr.io/legalmachinelab/cheshire-cat-core:1.4.7
     container_name: cheshire_cat_core
@@ -14,3 +16,17 @@ services:
       - ./static:/app/cat/static
       - ./plugins:/app/cat/plugins
       - ./data:/app/cat/data
+    networks:
+      - copm-network
+  jupyterlab:
+      image: jupyter/minimal-notebook:latest
+      container_name: jupyterlab
+      ports:
+        - 8888:8888
+      volumes:
+        - ./src:/home/jovyan/work
+      environment:
+        - JUPYTER_ENABLE_LAB=yes
+      command: start-notebook.sh --notebook-dir=/home/jovyan/work --LabApp.token='' --LabApp.password='' --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.allow_origin='*' --NotebookApp.ip='0.0.0.0'
+      networks:
+      - copm-network

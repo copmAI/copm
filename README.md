@@ -10,7 +10,6 @@ Ensure you have the following installed on your system:
 
 - **Docker**: [Installation Instructions](https://docs.docker.com/get-docker/)  
 - **Docker Compose**: [Installation Instructions](https://docs.docker.com/compose/install/)
-- **Python (3.8+)**: [Installation Instructions](https://www.python.org/downloads/)
 
 ## Setup Instructions  
 
@@ -21,9 +20,9 @@ git clone https://github.com/copmAI/AISOC25.git
 cd AISOC25
 ```
 
-### 2. Start the Cheshire Cat AI Service  
+### 2. Start the services
 
-Run the following command in the project directory to start the service using Docker Compose:  
+Run the following command in the project directory to start the services using Docker Compose:  
 
 ```bash
 docker compose up -d
@@ -35,7 +34,7 @@ To view logs:
 docker compose logs -f
 ```
 
-To stop the running Cheshire Cat AI, use:  
+To stop the running services, use:  
 
 ```bash
 docker compose down
@@ -45,7 +44,7 @@ This will stop and remove the containers without deleting volumes or stored data
 
 ### 3. Access the Cheshire Cat Admin Panel  
 
-Once the service is running, open your browser and go to:  
+Once the services are running, open your browser and go to:  
 
 ```
 http://localhost:1865/admin
@@ -60,76 +59,22 @@ Install these plugins in the **Admin Panel** (`http://localhost:1865/admin/plugi
 1. **Rabbithole Segmentation** – Allows segmentation of documents and URLs for multi-user environments.
 2. **Cheshire Cat Prompt Settings** – Enables customization of default prompt settings.
 
-### 5. Run Jupyter Notebooks  
+### 5. Run the Notebooks  
 
-To run the provided Jupyter Notebooks locally inside a virtual environment:  
+Open JupyterLab in your browser:
 
-### **Install JupyterLab and Setup a Virtual Environment**  
+```
+http://localhost:8888
+```
 
-1. Install `pipx` (required to manage Python tools):  
+ Open either `stipula.ipynb` or `crossjustice.ipynb`. These notebooks contain the prompts and details for the two case studies presented in the paper.
 
-   ```bash
-   sudo apt install pipx
-   pipx ensurepath
-   ```
+Locate the `KEY` variable inside the notebook. Replace its value with your own OpenAI API key:  
 
-2. Install JupyterLab using `pipx`:  
+```python
+KEY = "your-openai-api-key-here"
+```
 
-   ```bash
-   pipx install jupyterlab
-   ```
+   Without this key, the notebook will not be able to interact with the OpenAI API.  
 
-3. Create and activate a virtual environment:  
-
-   ```bash
-   python -m venv my-env
-   source my-env/bin/activate
-   ```
-
-4. Install `ipykernel` and required dependencies:  
-
-   ```bash
-   pip install ipykernel
-   ```
-
-5. Create a Jupyter kernel for the virtual environment:  
-
-   ```bash
-   python -m ipykernel install --user --name=my-env
-   ```
-
-6. Launch JupyterLab:  
-
-   ```bash
-   jupyter-lab
-   ```
-
-Here's the updated **Run the Notebooks** section with more details about setting the OpenAI key and the available notebooks:  
-
----
-
-### **Run the Notebooks**  
-
-1. **Launch JupyterLab**  
-   - Open JupyterLab in your browser. 
-
-2. **Open a Notebook**  
-   - Open either `stipula.ipynb` or `crossjustice.ipynb`.  
-   - These notebooks contain the prompts and details for the two case studies presented in the paper.
-
-3. **Set Up the OpenAI API Key**  
-   - Locate the `KEY` variable inside the notebook.  
-   - Replace its value with your own OpenAI API key:  
-
-     ```python
-     KEY = "your-openai-api-key-here"
-     ```
-
-   - Without this key, the notebook will not be able to interact with the OpenAI API.  
-
-4. **Select the Correct Kernel**  
-   - From the **Kernel** menu, choose **Change Kernel**.  
-   - Select `my-env` to ensure the correct virtual environment is used.  
-
-5. **Run the Notebook**  
-   - Execute all cells sequentially to interact with Cheshire Cat AI and explore the case studies.  
+Execute all cells sequentially to explore the case studies.
