@@ -19,7 +19,7 @@ Ensure you have the following installed on your system:
 
 ```bash
 git clone https://github.com/copmAI/copm.git
-cd AISOC25
+cd copm
 ```
 
 ### 2. Start the services
