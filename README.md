@@ -18,7 +18,7 @@ Ensure you have the following installed on your system:
 ### 1. Clone This Repository  
 
 ```bash
-git clone https://github.com/copmAI/AISOC25.git
+git clone https://github.com/copmAI/copm.git
 cd AISOC25
 ```
 
