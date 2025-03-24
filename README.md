@@ -1,6 +1,6 @@
-# Chain of Prompts and Memories in Large Language Models: Augmented Symbolic Legal Reasoning for Accessibility
+# Chain of Prompts and Memories for Accessible Symbolic Applications in the Legal Domain
 
-This repository contains the support material for the paper *Chain of Prompts and Memories in Large Language Models: Augmented Symbolic Legal Reasoning for Accessibility*.
+This repository contains the support material for the paper *Chain of Prompts and Memories for Accessible Symbolic Applications in the Legal Domain*.
 
 This guide provides instructions for setting up and running a [Cheshire Cat AI](https://cheshirecat.ai/) instance using Docker Compose, as well as accessing Jupyter Notebooks included in this repository.
 
